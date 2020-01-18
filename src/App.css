@@ -1,0 +1,55 @@
+.App {
+    text-align: center;
+    width: 1800px;
+    height: 1000px;
+    border: solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    background-color: #1b3861;
+    height: 600px;
+}
+
+.gamename h1 {
+    color: white;
+    font-family: cursive;
+    font-size: 60px
+}
+
+.board {
+    width: 500px
+}
+
+.category {
+    color: white;
+    font-weight: bold;
+    font-size: 30px;
+    height: 80px;
+}
+
+.question {
+    color: white;
+    font-size: 20px;
+    height: 120px;
+}
+
+.blankarea {
+    width: 500px
+}
+
+.cheese {
+    width: 500px
+}
+
+.options {
+    color: white;
+    font-size: 25px;
+}
+
+.button {
+    width: 250px;
+    height: 30px;
+}
