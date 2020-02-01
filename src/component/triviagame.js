@@ -1,4 +1,5 @@
 import React from "react";
+import {randomAnswer,decodeChar} from "../component/gamelogic";
 
 class MyComponent extends React.Component {
   constructor(props) {
@@ -23,7 +24,6 @@ class MyComponent extends React.Component {
             results: result.results
           });
         },
-
         error => {
           this.setState({
             isLoaded: true,
@@ -34,7 +34,7 @@ class MyComponent extends React.Component {
   }
 
   render() {
-    const { error, isLoaded, results } = this.state;
+    const {error, isLoaded, results} = this.state;
     if (error) {
       return <div>Error: {error.message}</div>;
     } else if (!isLoaded) {
@@ -44,6 +44,8 @@ class MyComponent extends React.Component {
         <div>
           {results.map(item => {
             let answers = [...item.incorrect_answers, item.correct_answer];
+            let question = item.question;
+            randomAnswer(answers);
             return (
               <div key={item.category} className="card">
                 <div className="cardinner">
@@ -51,17 +53,15 @@ class MyComponent extends React.Component {
                     <h1>TriviaGame</h1>
                     <div className="category">{item.category}</div>
                     <div className="question">
-                      {" "}
-                      {"Questão: " + item.question}
+                      {"Questão: " + decodeChar(question)}
                     </div>
                     <div className="options">
                       {"Opções: "}
                       {answers.map(item => (
                         <div>
                           <button key={item} className="button">
-                            {" "}
-                            {item}
-                          </button>{" "}
+                            {decodeChar(item)}
+                          </button>
                         </div>
                       ))}
                     </div>
