@@ -1,12 +1,13 @@
 import React from "react";
-import {randomAnswer,decodeChar} from "../component/gamelogic";
+import { randomAnswer, decodeChar, checkAnswer } from "../component/gamelogic";
 
 class MyComponent extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       error: null,
-      isLoaded: false
+      isLoaded: false,
+      activePlayer: "player1"
     };
   }
 
@@ -34,7 +35,7 @@ class MyComponent extends React.Component {
   }
 
   render() {
-    const {error, isLoaded, results} = this.state;
+    const { error, isLoaded, results, activePlayer } = this.state;
     if (error) {
       return <div>Error: {error.message}</div>;
     } else if (!isLoaded) {
@@ -42,8 +43,10 @@ class MyComponent extends React.Component {
     } else {
       return (
         <div>
+          {this.state.activePlayer}
           {results.map(item => {
             let answers = [...item.incorrect_answers, item.correct_answer];
+            let correct_answer = item.correct_answer;
             let question = item.question;
             randomAnswer(answers);
             return (
@@ -59,7 +62,19 @@ class MyComponent extends React.Component {
                       {"Opções: "}
                       {answers.map(item => (
                         <div>
-                          <button key={item} className="button">
+                          <button
+                            key={item}
+                            className="button"
+                            onClick={() => {
+                              const result = checkAnswer(
+                                decodeChar(item),
+                                correct_answer,
+                                activePlayer
+                              );
+                              
+                              this.setState({ activePlayer: result.nextPlayer });
+                            }}
+                          >
                             {decodeChar(item)}
                           </button>
                         </div>
