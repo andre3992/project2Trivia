@@ -19,18 +19,27 @@ export const decodeChar = (question) => {
     question = question.replace(/&ecirc;/g, "ê");
     question = question.replace(/&Uuml;/g, "Ü");
     question = question.replace(/&Ouml;/g, "Ö");
+    question = question.replace(/&amp;/g, "&");
     return question;
 };
 
-export const checkAnswer = (item, correct_answer, activePlayer) => {
+export const checkAnswer = (item, correct_answer, activePlayer, showWrongAnswer, showRightAnswer, updateQuestion) => {
     const correct = item === correct_answer;
     let nextPlayer = activePlayer;
+    let showModalRight = showRightAnswer;
+    let showModalWrong = showWrongAnswer;
+    let updateQuestion1 = updateQuestion;
+
     if (correct) {
-        alert("certo");
+        updateQuestion1 = true;
+        showModalRight = true;
+
     } else {
+        updateQuestion1 = true;
+        showModalWrong = true;
         nextPlayer = getNextPlayer(activePlayer);
     }
-    return { nextPlayer, correct }
+    return { nextPlayer, correct, showModalRight, showModalWrong, updateQuestion1 }
 };
 
 export const getNextPlayer = (activePlayer) => {
