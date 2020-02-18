@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { randomAnswer, decodeChar, checkAnswer } from "../component/gamelogic";
+import { randomAnswer, decodeChar, checkAnswer} from "../component/gamelogic";
 import ModalWrongAnswer from "./modalWrongAnswer";
 import ModalRightAnswer from "./modalRightAnswer";
 import StartGame from "./startGame";
@@ -8,9 +8,11 @@ class MyComponent extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      player1:0,
+      player2:0,
       error: null,
       isLoaded: false,
-      activePlayer: "player1",
+      activePlayer: "Player1",
       showWrongAnswer: false,
       showRightAnswer: false,
       updateQuestion: false,
@@ -73,8 +75,9 @@ class MyComponent extends Component {
       return <div>Loading...</div>;
     } else {
       return (
-        <div className="game">
-          {/* modal wrong answer */}
+        <>
+          {/* modal start game */}
+
           <main>
             <StartGame
               startGame={this.state.startGame}
@@ -83,6 +86,9 @@ class MyComponent extends Component {
               <p>Start</p>
             </StartGame>
           </main>
+
+          {/* modal wrong answer */}
+
           <main>
             <ModalWrongAnswer
               showWrongAnswer={this.state.showWrongAnswer}
@@ -100,64 +106,86 @@ class MyComponent extends Component {
               <p>Right</p>
             </ModalRightAnswer>
           </main>
-          <div style={{ display: this.state.active ? "none" : "inline" }}>
-            {this.state.activePlayer}
-            {this.state.show}
-            {results.map(item => {
-              let answers = [...item.incorrect_answers, item.correct_answer];
-              let correct_answer = item.correct_answer;
-              let question = item.question;
-              let showWrongAnswer = false;
-              let showRightAnswer = false;
-              let updateQuestion = false;
-              randomAnswer(answers);
-              return (
-                <div key={item.category} className="card">
-                  <div className="cardinner">
-                    <div className="gamename">
-                      <h1>TriviaGame</h1>
-                      <div className="category">{item.category}</div>
-                      <div className="question">
-                        {"Questão: " + decodeChar(question)}
-                      </div>
-                      <div className="options">
-                        {"Opções: "}
-                        {answers.map(item => (
-                          <div>
-                            <button
-                              key={item}
-                              className="button"
-                              onClick={() => {
-                                const result = checkAnswer(
-                                  decodeChar(item),
-                                  correct_answer,
-                                  activePlayer,
-                                  showWrongAnswer,
-                                  showRightAnswer,
-                                  updateQuestion
-                                );
+          <div className="main">
+            <div className="rules">
+              <h1>Rules:</h1>
+              <h2>1-Win a point everytime you get the answer right</h2>
+              <h2>2-You can only use help one time</h2>
+              <h2>3-The first one to get 5 points win</h2>
+              <h2>4-</h2>
+              <h2>5-</h2>
+            </div>
+            <div style={{ visibility: this.state.active ? "hidden" : "visible" }}  className="card">
+              {results.map(item => {
+                let answers = [...item.incorrect_answers, item.correct_answer];
+                let correct_answer = item.correct_answer;
+                let question = item.question;
+                let showWrongAnswer = false;
+                let showRightAnswer = false;
+                let updateQuestion = false;
+                let player1= this.state.player1;
+                let player2=this.state.player2;
+                randomAnswer(answers);
+                return (
+                  <div key={item.category}>
+                    <div className="cardinner">
+                      <div className="gamename">
+                        <h1>TriviaGame</h1>
+                        <div className="category">{item.category}</div>
+                        <div className="question">
+                          {"Question: " + decodeChar(question)}
+                        </div>
+                        <div className="options">
+                          {"Options: "}
+                          {answers.map(item => (
+                            <div>
+                              <button
+                                key={item}
+                                className="button"
+                                onClick={() => {
+                                  const result = checkAnswer(
+                                    decodeChar(item),
+                                    correct_answer,
+                                    activePlayer,
+                                    showWrongAnswer,
+                                    showRightAnswer,
+                                    updateQuestion,
+                                    player1,
+                                    player2
+                                  );
 
-                                this.setState({
-                                  showRightAnswer: result.showModalRight,
-                                  showWrongAnswer: result.showModalWrong,
-                                  activePlayer: result.nextPlayer,
-                                  updateQuestion: result.updateQuestion1,
-                                  active:true
-                                });
-                              }}
-                            >
-                              {decodeChar(item)}
-                            </button>
-                          </div>
-                        ))}
+                                  this.setState({
+                                    showRightAnswer: result.showModalRight,
+                                    showWrongAnswer: result.showModalWrong,
+                                    activePlayer: result.nextPlayer,
+                                    updateQuestion: result.updateQuestion1,
+                                    active: true,
+                                    player1:result.playerOne,
+                                    player2:result.playerTwo,
+
+                                  });
+                                }}
+                              >
+                                {decodeChar(item)}
+                              </button>
+                            </div>
+                          ))}
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-              );
-            })}
+                );
+              })}
+            </div>
+            <div className="scoreboard">
+              <h1>Playing: {this.state.activePlayer}</h1>
+
+              <h2>Scoreboard</h2>
+              <h3>Player1: {this.state.player1} </h3>
+              <h3>Player2: {this.state.player2} </h3>
+            </div>
           </div>
-        </div>
+        </>
       );
     }
   }

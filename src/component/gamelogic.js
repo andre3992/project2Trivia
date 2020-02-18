@@ -1,4 +1,4 @@
-export const randomAnswer = (answers) => {
+export const randomAnswer = answers => {
     let j, x, i;
     for (i = answers.length - 1; i > 0; i--) {
         j = Math.floor(Math.random() * (i + 1));
@@ -7,10 +7,10 @@ export const randomAnswer = (answers) => {
         answers[j] = x;
     }
     return answers;
-}
+};
 
-export const decodeChar = (question) => {
-    question = question.replace(/&quot;/g, "\"");
+export const decodeChar = question => {
+    question = question.replace(/&quot;/g, '"');
     question = question.replace(/&#039;/g, "'");
     question = question.replace(/&rsquot;/g, "’");
     question = question.replace(/&ldquo;/g, "“");
@@ -22,31 +22,61 @@ export const decodeChar = (question) => {
     question = question.replace(/&amp;/g, "&");
     return question;
 };
-
-export const checkAnswer = (item, correct_answer, activePlayer, showWrongAnswer, showRightAnswer, updateQuestion) => {
+const checkWinner = (player1,
+    player2) => {
+    if (player1 === 2 || player2 === 2) {
+        alert("winner");
+    }
+};
+export const checkAnswer = (
+    item,
+    correct_answer,
+    activePlayer,
+    showWrongAnswer,
+    showRightAnswer,
+    updateQuestion,
+    player1,
+    player2
+) => {
     const correct = item === correct_answer;
     let nextPlayer = activePlayer;
     let showModalRight = showRightAnswer;
     let showModalWrong = showWrongAnswer;
     let updateQuestion1 = updateQuestion;
+    let playerOne = player1;
+    let playerTwo = player2;
 
     if (correct) {
         updateQuestion1 = true;
         showModalRight = true;
-
+        if (nextPlayer === "Player1") {
+            playerOne++;
+        } else {
+            playerTwo++;
+        }
+        nextPlayer = getNextPlayer(activePlayer);
     } else {
         updateQuestion1 = true;
         showModalWrong = true;
         nextPlayer = getNextPlayer(activePlayer);
     }
-    return { nextPlayer, correct, showModalRight, showModalWrong, updateQuestion1 }
+    checkWinner(playerOne, playerTwo)
+    return {
+        nextPlayer,
+        correct,
+        showModalRight,
+        showModalWrong,
+        updateQuestion1,
+        playerOne,
+        playerTwo
+    };
 };
 
-export const getNextPlayer = (activePlayer) => {
-    if (activePlayer === "player1") {
-        activePlayer = "player2";
+export const getNextPlayer = activePlayer => {
+    if (activePlayer === "Player1") {
+        activePlayer = "Player2";
     } else {
-        activePlayer = "player1";
+        activePlayer = "Player1";
     }
     return activePlayer;
-}
+};

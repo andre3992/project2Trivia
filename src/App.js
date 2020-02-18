@@ -10,9 +10,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <div className="board">
-          <MyComponent />
-        </div>
+          <MyComponent />        
       </div>
     );
   }
