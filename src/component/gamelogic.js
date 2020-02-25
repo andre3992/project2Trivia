@@ -1,13 +1,6 @@
-export const randomAnswer = answers => {
-    let j, x, i;
-    for (i = answers.length - 1; i > 0; i--) {
-        j = Math.floor(Math.random() * (i + 1));
-        x = answers[i];
-        answers[i] = answers[j];
-        answers[j] = x;
-    }
-    return answers;
-};
+import getNextPlayer from "./nextplayer"
+
+
 
 export const decodeChar = question => {
     question = question.replace(/&quot;/g, '"');
@@ -81,13 +74,4 @@ export const checkAnswer = (
         playerTwo,
         win
     };
-};
-
-export const getNextPlayer = activePlayer => {
-    if (activePlayer === "Player1") {
-        activePlayer = "Player2";
-    } else {
-        activePlayer = "Player1";
-    }
-    return activePlayer;
 };

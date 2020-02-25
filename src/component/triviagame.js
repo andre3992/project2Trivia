@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { randomAnswer, decodeChar, checkAnswer } from "../component/gamelogic";
+import randomAnswer from "./randomAnswer";
+import {decodeChar, checkAnswer } from "../component/gamelogic";
 import ModalWrongAnswer from "./modalWrongAnswer";
 import ModalRightAnswer from "./modalRightAnswer";
 import StartGame from "./startGame";
