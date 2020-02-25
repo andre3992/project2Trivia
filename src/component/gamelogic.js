@@ -22,10 +22,13 @@ export const decodeChar = question => {
     question = question.replace(/&amp;/g, "&");
     return question;
 };
+
 const checkWinner = (player1,
-    player2) => {
+    player2, won) => {
     if (player1 === 2 || player2 === 2) {
-        alert("winner");
+        alert(won);
+        won = true;
+        return won;
     }
 };
 export const checkAnswer = (
@@ -36,7 +39,8 @@ export const checkAnswer = (
     showRightAnswer,
     updateQuestion,
     player1,
-    player2
+    player2,
+    winner
 ) => {
     const correct = item === correct_answer;
     let nextPlayer = activePlayer;
@@ -45,6 +49,7 @@ export const checkAnswer = (
     let updateQuestion1 = updateQuestion;
     let playerOne = player1;
     let playerTwo = player2;
+    let won = winner;
 
     if (correct) {
         updateQuestion1 = true;
@@ -60,7 +65,12 @@ export const checkAnswer = (
         showModalWrong = true;
         nextPlayer = getNextPlayer(activePlayer);
     }
-    checkWinner(playerOne, playerTwo)
+
+    let win = checkWinner(playerOne, playerTwo, won);
+    if (win === true) {
+        showModalRight = false;
+    }
+
     return {
         nextPlayer,
         correct,
@@ -68,7 +78,8 @@ export const checkAnswer = (
         showModalWrong,
         updateQuestion1,
         playerOne,
-        playerTwo
+        playerTwo,
+        win
     };
 };
 

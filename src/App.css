@@ -104,6 +104,15 @@
 
 .card {
     background-color: #1b3861;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 600px;
     width: 450px;
+    flex-direction: column;
+}
+
+.tittle {
+    font-family: cursive;
+    font-size: 30px;
 }

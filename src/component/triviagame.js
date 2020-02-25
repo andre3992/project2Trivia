@@ -1,15 +1,16 @@
 import React, { Component } from "react";
-import { randomAnswer, decodeChar, checkAnswer} from "../component/gamelogic";
+import { randomAnswer, decodeChar, checkAnswer } from "../component/gamelogic";
 import ModalWrongAnswer from "./modalWrongAnswer";
 import ModalRightAnswer from "./modalRightAnswer";
 import StartGame from "./startGame";
+import ModalWinner from "./modalWinner";
 
 class MyComponent extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      player1:0,
-      player2:0,
+      player1: 0,
+      player2: 0,
       error: null,
       isLoaded: false,
       activePlayer: "Player1",
@@ -18,7 +19,8 @@ class MyComponent extends Component {
       updateQuestion: false,
       startGame: true,
       // active for hide game at start
-      active: true
+      active: true,
+      winner:false
     };
   }
 
@@ -28,7 +30,8 @@ class MyComponent extends Component {
       showRightAnswer: false,
       showWrongAnswer: false,
       startGame: false,
-      active: false
+      active: false,
+      winner: false
     });
   };
 
@@ -76,6 +79,17 @@ class MyComponent extends Component {
     } else {
       return (
         <>
+          {/* modal winner */}
+
+          <main>
+            <ModalWinner
+              winner={this.state.winner}
+              handleClose={this.hideModal}
+            >
+              <p>winner</p>
+            </ModalWinner>
+          </main>
+
           {/* modal start game */}
 
           <main>
@@ -94,7 +108,7 @@ class MyComponent extends Component {
               showWrongAnswer={this.state.showWrongAnswer}
               handleClose={this.hideModal}
             >
-              <p>Wrong</p>
+              <p>Incorrect</p>
             </ModalWrongAnswer>
           </main>
           {/* modal right answer */}
@@ -103,7 +117,7 @@ class MyComponent extends Component {
               showRightAnswer={this.state.showRightAnswer}
               handleClose={this.hideModal}
             >
-              <p>Right</p>
+              <p>Correct</p>
             </ModalRightAnswer>
           </main>
           <div className="main">
@@ -115,67 +129,73 @@ class MyComponent extends Component {
               <h2>4-</h2>
               <h2>5-</h2>
             </div>
-            <div style={{ visibility: this.state.active ? "hidden" : "visible" }}  className="card">
-              {results.map(item => {
-                let answers = [...item.incorrect_answers, item.correct_answer];
-                let correct_answer = item.correct_answer;
-                let question = item.question;
-                let showWrongAnswer = false;
-                let showRightAnswer = false;
-                let updateQuestion = false;
-                let player1= this.state.player1;
-                let player2=this.state.player2;
-                randomAnswer(answers);
-                return (
-                  <div key={item.category}>
-                    <div className="cardinner">
-                      <div className="gamename">
-                        <h1>TriviaGame</h1>
-                        <div className="category">{item.category}</div>
-                        <div className="question">
-                          {"Question: " + decodeChar(question)}
-                        </div>
-                        <div className="options">
-                          {"Options: "}
-                          {answers.map(item => (
-                            <div>
-                              <button
-                                key={item}
-                                className="button"
-                                onClick={() => {
-                                  const result = checkAnswer(
-                                    decodeChar(item),
-                                    correct_answer,
-                                    activePlayer,
-                                    showWrongAnswer,
-                                    showRightAnswer,
-                                    updateQuestion,
-                                    player1,
-                                    player2
-                                  );
-
-                                  this.setState({
-                                    showRightAnswer: result.showModalRight,
-                                    showWrongAnswer: result.showModalWrong,
-                                    activePlayer: result.nextPlayer,
-                                    updateQuestion: result.updateQuestion1,
-                                    active: true,
-                                    player1:result.playerOne,
-                                    player2:result.playerTwo,
-
-                                  });
-                                }}
-                              >
-                                {decodeChar(item)}
-                              </button>
-                            </div>
-                          ))}
-                        </div>
+            <div className="tittle">
+              <h1>Trivia Game</h1>
+              <div
+                style={{ visibility: this.state.active ? "hidden" : "visible" }}
+                className="card"
+              >
+                {results.map(item => {
+                  let answers = [
+                    ...item.incorrect_answers,
+                    item.correct_answer
+                  ];
+                  let correct_answer = item.correct_answer;
+                  let question = item.question;
+                  let showWrongAnswer = false;
+                  let showRightAnswer = false;
+                  let updateQuestion = false;
+                  let player1 = this.state.player1;
+                  let player2 = this.state.player2;
+                  let winner = this.state.winner;
+                  randomAnswer(answers);
+                  return (
+                    <>
+                      <div className="category">{item.category}</div>
+                      <div className="question">
+                        {"Question: " + decodeChar(question)}
                       </div>
-                    </div>
-                  </div>
-                );
-              })}
+                      <div className="options">
+                        {"Options: "}
+                        {answers.map(item => (
+                          <div>
+                            <button
+                              key={item}
+                              className="button"
+                              onClick={() => {
+                                const result = checkAnswer(
+                                  decodeChar(item),
+                                  correct_answer,
+                                  activePlayer,
+                                  showWrongAnswer,
+                                  showRightAnswer,
+                                  updateQuestion,
+                                  player1,
+                                  player2,
+                                  winner
+                                );
+
+                                this.setState({
+                                  showRightAnswer: result.showModalRight,
+                                  showWrongAnswer: result.showModalWrong,
+                                  activePlayer: result.nextPlayer,
+                                  updateQuestion: result.updateQuestion1,
+                                  active: true,
+                                  player1: result.playerOne,
+                                  player2: result.playerTwo,
+                                  winner: result.win
+                                });
+                              }}
+                            >
+                              {decodeChar(item)}
+                            </button>
+                          </div>
+                        ))}
+                      </div>
+                    </>
+                  );
+                })}
+              </div>
             </div>
             <div className="scoreboard">
               <h1>Playing: {this.state.activePlayer}</h1>
