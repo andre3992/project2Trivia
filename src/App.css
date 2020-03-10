@@ -5,11 +5,11 @@
     justify-content: center;
     background-image: url("https://images.freeimages.com/images/large-previews/4e1/free-technical-background-design-1635196.jpg");
     height: 850px;
+    font-family: Mako, sans-serif;
 }
 
 .gamename h1 {
     color: white;
-    font-family: cursive;
     font-size: 60px
 }
 
@@ -61,13 +61,16 @@
 }
 
 .modal-main {
-    position: fixed;
+    display: flex;
+    position: absolute;
     background: white;
-    width: 40%;
-    height: auto;
+    width: 30%;
+    height: 200px;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    align-items: center;
+    justify-content: center;
 }
 
 .display-block {
@@ -88,6 +91,7 @@
 .scoreboard {
     position: relative;
     top: 25%;
+    left: 10%;
     height: 600px;
     width: 450px;
 }
@@ -96,13 +100,14 @@
     width: 450px;
     position: relative;
     top: 20%;
+    right: 10%;
     height: 600px;
     width: 450px;
-    font-family: cursive;
     font-size: 15px;
 }
 
 .card {
+    border-radius: 10%;
     background-color: #1b3861;
     display: flex;
     justify-content: center;
@@ -112,7 +117,32 @@
     flex-direction: column;
 }
 
+.cardInner {
+    display: flex;
+    height: 620px;
+    width: 470px;
+    background-color: goldenrod;
+    justify-content: center;
+    align-items: center;
+}
+
 .tittle {
-    font-family: cursive;
     font-size: 30px;
+}
+
+.button {
+    display: block;
+    width: 15rem;
+    background-color: #dfdfdf;
+    margin: .75rem;
+    border-radius: 5px;
+    color: #000;
+    font-size: 1rem;
+    border: none;
+    transition: padding .3s;
+}
+
+.button:hover {
+    background-color: green;
+    color: white;
 }

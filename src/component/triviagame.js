@@ -139,6 +139,9 @@ class MyComponent extends Component {
             </div>
             <div className="tittle">
               <h1>Trivia Game</h1>
+              <div style={{ visibility: this.state.active ? "hidden" : "visible" }}
+              className="cardInner">
+
               <div
                 style={{ visibility: this.state.active ? "hidden" : "visible" }}
                 className="card"
@@ -198,12 +201,13 @@ class MyComponent extends Component {
                               {decodeChar(item)}
                             </button>
                           </div>
-                        ))}
+                        ))} 
                       </div>
                     </>
                   );
                 })}
               </div>
+            </div>
             </div>
             <div className="scoreboard">
               <h1>Playing: {this.state.activePlayer}</h1>
