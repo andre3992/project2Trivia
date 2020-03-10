@@ -21,28 +21,35 @@ class MyComponent extends Component {
       startGame: true,
       // active for hide game at start
       active: true,
-      winner:false
+      winner:false,
+      difficulty: "easy"
     };
   }
 
   // hide modal
-  hideModal = () => {
+  hideModal = (difficulty) => {
+    if(difficulty==="easy"){
+      this.setState({difficulty: "easy"})};
+     if(difficulty==="medium"){
+      this.setState({difficulty: "medium"})};
+     if(difficulty==="hard"){
+      this.setState({difficulty: "hard"})};
+    console.log(difficulty)
     this.setState({
       showRightAnswer: false,
       showWrongAnswer: false,
       startGame: false,
       active: false,
-      winner: false
+      winner: false,
     });
   };
 
-  // get question
+
   getQuiz = () => {
     this.setState({ updateQuestion: false });
     return fetch(
       "https://opentdb.com/api.php?amount=1&category=" +
-        (Math.floor(Math.random() * 18) + 9) +
-        "&type=multiple"
+      (Math.floor(Math.random() * 18) + 9) + "&difficulty=" + this.state.difficulty + "&type=multiple"
     )
       .then(res => res.json())
       .then(
@@ -98,7 +105,7 @@ class MyComponent extends Component {
               startGame={this.state.startGame}
               handleClose={this.hideModal}
             >
-              <p>Start</p>
+              <p>Welcome</p>
             </StartGame>
           </main>
 
