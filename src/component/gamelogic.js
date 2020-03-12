@@ -18,8 +18,7 @@ export const decodeChar = question => {
 
 const checkWinner = (player1,
     player2, won) => {
-    if (player1 === 2 || player2 === 2) {
-        alert(won);
+    if (player1 === 5 || player2 === 5) {
         won = true;
         return won;
     }
