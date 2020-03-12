@@ -14,6 +14,15 @@
     text-align: center;
 }
 
+.question {
+    padding-left: 45px;
+    padding-right: 45px;
+}
+
+.tittleName {
+    color: goldenrod;
+}
+
 .rules {
     color: white;
 }
@@ -172,7 +181,8 @@ button:hover {
 
 .button {
     display: block;
-    width: 15rem;
+    width: 250px;
+    height: 40px;
     background-color: #dfdfdf;
     margin: .75rem;
     border-radius: 5px;
