@@ -1,11 +1,25 @@
 .App {
     display: flex;
-    text-align: center;
-    border: solid;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
-    background-image: url("https://images.freeimages.com/images/large-previews/4e1/free-technical-background-design-1635196.jpg");
-    height: 850px;
+    align-items: center;
+    background-color: #203e69;
     font-family: Mako, sans-serif;
+    text-align: center;
+}
+
+.rules {
+    color: white;
+}
+
+.scoreboard {
+    color: white;
 }
 
 .gamename h1 {
@@ -43,9 +57,21 @@
     font-size: 25px;
 }
 
-.button {
-    width: 250px;
-    height: 30px;
+button {
+    display: block;
+    width: 100px;
+    background-color: #dfdfdf;
+    margin: 1px;
+    border-radius: 5px;
+    color: #000;
+    font-size: 1rem;
+    border: none;
+    transition: padding .3s;
+}
+
+button:hover {
+    background-color: green;
+    color: white;
 }
 
 
@@ -60,10 +86,10 @@
     background: rgba(0, 0, 0, 0.6);
 }
 
-.modal-main {
+.modal-StartGame {
+    color: white;
     display: flex;
     position: absolute;
-    background: white;
     width: 30%;
     height: 200px;
     top: 50%;
@@ -71,6 +97,20 @@
     transform: translate(-50%, -50%);
     align-items: center;
     justify-content: center;
+    flex-direction: column;
+}
+
+.modal-main {
+    display: flex;
+    position: absolute;
+    width: 30%;
+    height: 200px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    align-items: center;
+    justify-content: center;
+    color: white;
 }
 
 .display-block {

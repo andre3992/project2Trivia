@@ -7,11 +7,10 @@ const ModalWrongAnswer = ({ handleClose, showWrongAnswer, children }) => {
   return (
     <div className={showHideClassName}>
       <section className='modal-main'>
-        {children}
         <button
           onClick={handleClose}
         >
-          OK
+          {children}
         </button>
       </section>
     </div>

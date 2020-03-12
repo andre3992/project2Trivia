@@ -105,7 +105,7 @@ class MyComponent extends Component {
               startGame={this.state.startGame}
               handleClose={this.hideModal}
             >
-              <p>Welcome</p>
+              <h1>Welcome</h1>
             </StartGame>
           </main>
 
