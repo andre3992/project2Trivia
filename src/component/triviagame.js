@@ -229,8 +229,8 @@ class MyComponent extends Component {
               </div>
             </Col>
 
-            <Col>
-              <div className="scoreboard">
+            <Col className="scoreboard">
+              <div >
                 <h1>Playing: {this.state.activePlayer}</h1>
                 <h2>Scoreboard</h2>
                 <h3>Player1: {this.state.player1} </h3>
