@@ -9,7 +9,7 @@
     text-align: center;
 }
 
-@media only screen and (max-width: 1024px) {
+@media only screen and (max-width: 1023px) {
     .rules {
         display: none;
     }
@@ -144,7 +144,7 @@
     align-items: center;
 }
 
-@media only screen and (max-width: 1024px) {
+@media only screen and (max-width: 1023px) {
     .scoreboard {
         display: none;
     }
