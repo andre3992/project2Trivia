@@ -1,14 +1,14 @@
 import React from "react";
 
-const ModalWinner = ({ handleClose, winner, children }) => {
+const ModalWinner = ({ handleClose, winner,player }) => {
   const showHideClassName = winner
     ? "modal display-block"
     : "modal display-none";
   return (
     <div className={showHideClassName}>
-      <section className="modal-main">
-        {children}
-        <button onClick={handleClose}>Winner </button>
+      <section className="modal-mainWinner">
+      Congratulations {player} you are the Winner
+        <button onClick={handleClose}> Want to play again? </button>
       </section>
     </div>
   );

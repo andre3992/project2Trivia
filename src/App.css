@@ -21,6 +21,7 @@
 
 .tittleName {
     color: goldenrod;
+    margin-top: 50px;
 }
 
 .rules {
@@ -36,9 +37,10 @@
     font-size: 60px
 }
 
-.board {
+
+/* .board {
     width: 500px
-}
+} */
 
 .category {
     color: white;
@@ -66,20 +68,29 @@
     font-size: 25px;
 }
 
-button {
+.buttonWrongAnswer {
     display: block;
     width: 100px;
-    background-color: #dfdfdf;
+    background-color: red;
     margin: 1px;
     border-radius: 5px;
     color: #000;
     font-size: 1rem;
     border: none;
     transition: padding .3s;
+    color: white;
 }
 
-button:hover {
+.buttonRightAnswer {
+    display: block;
+    width: 100px;
     background-color: green;
+    margin: 1px;
+    border-radius: 5px;
+    color: #000;
+    font-size: 1rem;
+    border: none;
+    transition: padding .3s;
     color: white;
 }
 
@@ -122,6 +133,35 @@ button:hover {
     color: white;
 }
 
+.modal-mainWinner {
+    display: flex;
+    position: absolute;
+    width: 30%;
+    height: 200px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    align-items: center;
+    justify-content: space-around;
+    color: white;
+    flex-direction: column;
+    background-image: url("https://cdn.pixabay.com/photo/2017/07/21/23/57/concert-2527495__340.jpg");
+    text-shadow: white;
+}
+
+.modal-StartGame {
+    display: flex;
+    position: absolute;
+    width: 30%;
+    height: 200px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
 .display-block {
     display: block;
 }
@@ -132,7 +172,7 @@ button:hover {
 
 .main {
     display: flex;
-    width: 1360px;
+    /* width: 1360px; */
     justify-content: center;
     align-items: center;
 }
@@ -142,16 +182,19 @@ button:hover {
     top: 25%;
     left: 10%;
     height: 600px;
-    width: 450px;
+    width: 300px;
+}
+
+.scoreboard h1 {
+    color: goldenrod;
 }
 
 .rules {
-    width: 450px;
     position: relative;
     top: 20%;
     right: 10%;
     height: 600px;
-    width: 450px;
+    width: 300px;
     font-size: 15px;
 }
 
@@ -179,7 +222,7 @@ button:hover {
     font-size: 30px;
 }
 
-.button {
+.buttonQuiz {
     display: block;
     width: 250px;
     height: 40px;
@@ -192,7 +235,20 @@ button:hover {
     transition: padding .3s;
 }
 
-.button:hover {
+.buttonQuiz:hover {
     background-color: green;
     color: white;
+}
+
+.buttonStart {
+    display: block;
+    width: 250px;
+    height: 40px;
+    background-color: #dfdfdf;
+    margin: 2px;
+    border-radius: 5px;
+    color: #000;
+    font-size: 1rem;
+    border: none;
+    transition: padding .3s;
 }

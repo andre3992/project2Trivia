@@ -8,7 +8,7 @@ const ModalRightAnswer = ({ handleClose, showRightAnswer, children }) => {
   return (
     <div className={showHideClassName}>
       <section className="modal-main">
-        <button onClick={handleClose}>{children}</button>
+        <button onClick={handleClose} class="buttonRightAnswer">{children}</button>
       </section>
     </div>
   );

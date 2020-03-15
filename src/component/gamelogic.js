@@ -18,11 +18,13 @@ export const decodeChar = question => {
 
 const checkWinner = (player1,
     player2, won) => {
-    if (player1 === 5 || player2 === 5) {
+    if (player1 === 1 || player2 === 1) {
         won = true;
         return won;
     }
 };
+
+
 export const checkAnswer = (
     item,
     correct_answer,
@@ -43,6 +45,8 @@ export const checkAnswer = (
     let playerTwo = player2;
     let won = winner;
 
+
+
     if (correct) {
         updateQuestion1 = true;
         showModalRight = true;
@@ -51,17 +55,23 @@ export const checkAnswer = (
         } else {
             playerTwo++;
         }
-        nextPlayer = getNextPlayer(activePlayer);
+        let win = checkWinner(playerOne, playerTwo, won);
+
+        if (win === false) {
+            nextPlayer = getNextPlayer(activePlayer);
+        }
     } else {
         updateQuestion1 = true;
         showModalWrong = true;
         nextPlayer = getNextPlayer(activePlayer);
-    }
 
+    }
     let win = checkWinner(playerOne, playerTwo, won);
+
     if (win === true) {
         showModalRight = false;
     }
+
 
     return {
         nextPlayer,

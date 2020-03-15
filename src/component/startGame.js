@@ -8,9 +8,9 @@ const StartGame = ({ handleClose, startGame,children }) => {
       <section className="modal-StartGame">
       {children}
         <h2>If ready to start choose the difficulty</h2>
-        <button onClick={()=>handleClose("easy")}>Easy</button>
-        <button onClick={()=>handleClose("medium")}>Medium</button>
-        <button onClick={()=>handleClose("hard")}>Hard</button>
+        <button className="buttonStart" onClick={()=>handleClose("easy")}>Easy</button>
+        <button className="buttonStart" onClick={()=>handleClose("medium")}>Medium</button>
+        <button className="buttonStart" onClick={()=>handleClose("hard")}>Hard</button>
       </section>
     </div>
   );
