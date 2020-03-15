@@ -1,17 +1,18 @@
 .App {
-    display: flex;
     position: absolute;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
     background-color: #203e69;
     font-family: Mako, sans-serif;
     text-align: center;
+}
+
+@media only screen and (max-width: 1024px) {
+    .rules {
+        display: none;
+    }
 }
 
 .question {
@@ -22,14 +23,6 @@
 .tittleName {
     color: goldenrod;
     margin-top: 50px;
-}
-
-.rules {
-    color: white;
-}
-
-.scoreboard {
-    color: white;
 }
 
 .gamename h1 {
@@ -66,32 +59,6 @@
 .options {
     color: white;
     font-size: 25px;
-}
-
-.buttonWrongAnswer {
-    display: block;
-    width: 100px;
-    background-color: red;
-    margin: 1px;
-    border-radius: 5px;
-    color: #000;
-    font-size: 1rem;
-    border: none;
-    transition: padding .3s;
-    color: white;
-}
-
-.buttonRightAnswer {
-    display: block;
-    width: 100px;
-    background-color: green;
-    margin: 1px;
-    border-radius: 5px;
-    color: #000;
-    font-size: 1rem;
-    border: none;
-    transition: padding .3s;
-    color: white;
 }
 
 
@@ -178,11 +145,10 @@
 }
 
 .scoreboard {
+    color: white;
     position: relative;
-    top: 25%;
-    left: 10%;
-    height: 600px;
-    width: 300px;
+    top: 20%;
+    font-size: 15px;
 }
 
 .scoreboard h1 {
@@ -190,36 +156,36 @@
 }
 
 .rules {
+    color: white;
     position: relative;
     top: 20%;
-    right: 10%;
-    height: 600px;
-    width: 300px;
     font-size: 15px;
 }
 
 .card {
     border-radius: 10%;
+    border: 10px;
     background-color: #1b3861;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 600px;
-    width: 450px;
     flex-direction: column;
 }
 
 .cardInner {
+    border-style: solid;
+    border-width: 5px;
     display: flex;
-    height: 620px;
-    width: 470px;
+    border-color: goldenrod;
     background-color: goldenrod;
     justify-content: center;
     align-items: center;
 }
 
 .tittle {
+    top: 10%;
     font-size: 30px;
+    position: relative;
 }
 
 .buttonQuiz {
@@ -230,7 +196,7 @@
     margin: .75rem;
     border-radius: 5px;
     color: #000;
-    font-size: 1rem;
+    font-size: 15px;
     border: none;
     transition: padding .3s;
 }
@@ -248,7 +214,34 @@
     margin: 2px;
     border-radius: 5px;
     color: #000;
-    font-size: 1rem;
+    font-size: 15px;
     border: none;
     transition: padding .3s;
+}
+
+.buttonWrongAnswer {
+    display: block;
+    width: 250px;
+    height: 40px;
+    background-color: red;
+    margin: 2px;
+    border-radius: 5px;
+    color: #000;
+    font-size: 15px;
+    border: none;
+    transition: padding .3s;
+    color: white;
+}
+
+.buttonRightAnswer {
+    display: block;
+    width: 100px;
+    background-color: green;
+    margin: 1px;
+    border-radius: 5px;
+    color: #000;
+    font-size: 15px;
+    border: none;
+    transition: padding .3s;
+    color: white;
 }
