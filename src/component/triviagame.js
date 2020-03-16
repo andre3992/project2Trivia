@@ -108,7 +108,7 @@ class MyComponent extends Component {
                 <h2>5-</h2>
               </div>
             </Col>
-            <Col xs={12} sm={6} md={5} lg={3}  className="tittle">
+            <Col className="tittle" >
               {/* modal winner */}
               <main>
                 <ModalWinner

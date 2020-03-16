@@ -72,6 +72,7 @@
 .options {
     color: white;
     font-size: 25px;
+    padding-bottom: 20px;
 }
 
 
@@ -199,23 +200,25 @@
     background-color: goldenrod;
     justify-content: center;
     align-items: center;
+    width: 400px;
 }
 
 .category {
     padding-left: 10px;
     padding-right: 10px;
-    padding-top: 10px;
+    padding-top: 15px;
 }
 
 .question {
     padding-left: 10px;
     padding-right: 10px;
-    padding-top: 20px;
 }
 
 .tittle {
     top: 10%;
     font-size: 30px;
+    display: flex;
+    justify-content: center;
 }
 
 .row {
