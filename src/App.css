@@ -48,6 +48,19 @@
     height: 120px;
 }
 
+@media only screen and (max-width: 1023px) {
+    .question {
+        font-size: 20px;
+    }
+}
+
+@media only screen and (max-width: 1023px) {
+    .category {
+        font-size: 25px;
+        ;
+    }
+}
+
 .blankarea {
     width: 500px
 }
@@ -186,6 +199,18 @@
     background-color: goldenrod;
     justify-content: center;
     align-items: center;
+}
+
+.category {
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+}
+
+.question {
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 20px;
 }
 
 .tittle {
