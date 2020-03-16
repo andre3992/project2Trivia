@@ -108,9 +108,8 @@ class MyComponent extends Component {
                 <h2>5-</h2>
               </div>
             </Col>
-            <Col>
+            <Col xs={12} sm={6} className="tittle">
               {/* modal winner */}
-
               <main>
                 <ModalWinner
                   winner={this.state.winner}
@@ -151,86 +150,84 @@ class MyComponent extends Component {
                   <p>Correct</p>
                 </ModalRightAnswer>
               </main>
-              <div className="tittle">
+              <div
+                style={{
+                  visibility: this.state.active ? "hidden" : "visible"
+                }}
+                className="cardInner"
+              >
                 <div
                   style={{
                     visibility: this.state.active ? "hidden" : "visible"
                   }}
-                  className="cardInner"
+                  className="card"
                 >
-                  <div
-                    style={{
-                      visibility: this.state.active ? "hidden" : "visible"
-                    }}
-                    className="card"
-                  >
-                    {results.map(item => {
-                      let answers = [
-                        ...item.incorrect_answers,
-                        item.correct_answer
-                      ];
-                      let correct_answer = item.correct_answer;
-                      let question = item.question;
-                      let showWrongAnswer = false;
-                      let showRightAnswer = false;
-                      let updateQuestion = false;
-                      let player1 = this.state.player1;
-                      let player2 = this.state.player2;
-                      let winner = this.state.winner;
-                      randomAnswer(answers);
-                      return (
-                        <>
-                          <div className="category">{item.category}</div>
-                          <div className="question">
-                            {"Question: " + decodeChar(question)}
-                          </div>
-                          <div className="options">
-                            {"Options: "}
-                            {answers.map(item => (
-                              <div>
-                                <button
-                                  key={item}
-                                  className="buttonQuiz"
-                                  onClick={() => {
-                                    const result = checkAnswer(
-                                      decodeChar(item),
-                                      correct_answer,
-                                      activePlayer,
-                                      showWrongAnswer,
-                                      showRightAnswer,
-                                      updateQuestion,
-                                      player1,
-                                      player2,
-                                      winner
-                                    );
+                  {results.map(item => {
+                    let answers = [
+                      ...item.incorrect_answers,
+                      item.correct_answer
+                    ];
+                    let correct_answer = item.correct_answer;
+                    let question = item.question;
+                    let showWrongAnswer = false;
+                    let showRightAnswer = false;
+                    let updateQuestion = false;
+                    let player1 = this.state.player1;
+                    let player2 = this.state.player2;
+                    let winner = this.state.winner;
+                    randomAnswer(answers);
+                    return (
+                      <>
+                        <div className="category">{item.category}</div>
+                        <div className="question">
+                          {"Question: " + decodeChar(question)}
+                        </div>
+                        <div className="options">
+                          {"Options: "}
+                          {answers.map(item => (
+                            <div>
+                              <button
+                                key={item}
+                                className="buttonQuiz"
+                                onClick={() => {
+                                  const result = checkAnswer(
+                                    decodeChar(item),
+                                    correct_answer,
+                                    activePlayer,
+                                    showWrongAnswer,
+                                    showRightAnswer,
+                                    updateQuestion,
+                                    player1,
+                                    player2,
+                                    winner
+                                  );
 
-                                    this.setState({
-                                      showRightAnswer: result.showModalRight,
-                                      showWrongAnswer: result.showModalWrong,
-                                      activePlayer: result.nextPlayer,
-                                      updateQuestion: result.updateQuestion1,
-                                      active: true,
-                                      player1: result.playerOne,
-                                      player2: result.playerTwo,
-                                      winner: result.win
-                                    });
-                                  }}
-                                >
-                                  {decodeChar(item)}
-                                </button>
-                              </div>
-                            ))}
-                          </div>
-                        </>
-                      );
-                    })}
-                  </div>
+                                  this.setState({
+                                    showRightAnswer: result.showModalRight,
+                                    showWrongAnswer: result.showModalWrong,
+                                    activePlayer: result.nextPlayer,
+                                    updateQuestion: result.updateQuestion1,
+                                    active: true,
+                                    player1: result.playerOne,
+                                    player2: result.playerTwo,
+                                    winner: result.win
+                                  });
+                                }}
+                              >
+                                {decodeChar(item)}
+                              </button>
+                            </div>
+                          ))}
+                        </div>
+                      </>
+                    );
+                  })}
                 </div>
               </div>
             </Col>
 
             <Col className="scoreboard">
-              <div >
+              <div>
                 <h1>Playing: {this.state.activePlayer}</h1>
                 <h2>Scoreboard</h2>
                 <h3>Player1: {this.state.player1} </h3>

@@ -191,7 +191,11 @@
 .tittle {
     top: 10%;
     font-size: 30px;
-    position: relative;
+}
+
+.row {
+    display: flex;
+    justify-content: center;
 }
 
 .buttonQuiz {
