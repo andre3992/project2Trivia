@@ -102,10 +102,8 @@ class MyComponent extends Component {
               <div>
                 <h1>Rules:</h1>
                 <h2>1-Win a point everytime you get the answer right</h2>
-                <h2>2-You can only use help one time</h2>
+                <h2>2-One player at a time</h2>
                 <h2>3-The first one to get 5 points win</h2>
-                <h2>4-</h2>
-                <h2>5-</h2>
               </div>
             </Col>
             <Col className="tittle" >

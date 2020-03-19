@@ -9,11 +9,6 @@
     text-align: center;
 }
 
-.question {
-    padding-left: 45px;
-    padding-right: 45px;
-}
-
 .tittleName {
     color: goldenrod;
     margin-top: 50px;
@@ -32,7 +27,7 @@
 .category {
     color: white;
     font-weight: bold;
-    font-size: 30px;
+    font-size: 25px;
     height: 80px;
 }
 
@@ -40,11 +35,15 @@
     color: white;
     font-size: 20px;
     height: 120px;
+    padding-left: 15px;
+    padding-right: 15px;
+    font-size: 18px;
+    padding-top: 15px;
 }
 
 @media only screen and (max-width: 1023px) {
     .question {
-        font-size: 20px;
+        font-size: 18px;
     }
     .rules {
         display: none;
@@ -79,6 +78,7 @@
     color: white;
     font-size: 25px;
     padding-bottom: 20px;
+    padding-top: 20px;
 }
 
 
@@ -209,11 +209,6 @@
     padding-top: 15px;
 }
 
-.question {
-    padding-left: 10px;
-    padding-right: 10px;
-}
-
 .tittle {
     top: 10%;
     font-size: 30px;
@@ -255,6 +250,11 @@
     font-size: 15px;
     border: none;
     transition: padding .3s;
+}
+
+.buttonStart:hover {
+    background-color: green;
+    color: white;
 }
 
 .buttonWrongAnswer {
