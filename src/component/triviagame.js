@@ -6,6 +6,7 @@ import ModalWrongAnswer from "./modalWrongAnswer";
 import ModalRightAnswer from "./modalRightAnswer";
 import StartGame from "./startGame";
 import ModalWinner from "./modalWinner";
+import ModalRules from "./modalRules";
 import { Container, Row, Col } from "react-bootstrap";
 
 class MyComponent extends Component {
@@ -19,6 +20,7 @@ class MyComponent extends Component {
       activePlayer: "Player1",
       showWrongAnswer: false,
       showRightAnswer: false,
+      showRules: false,
       updateQuestion: false,
       startGame: true,
       // active for hide game at start
@@ -45,7 +47,8 @@ class MyComponent extends Component {
       showWrongAnswer: false,
       startGame: false,
       active: false,
-      winner: false
+      winner: false,
+      showRules:false
     });
   };
 
@@ -106,7 +109,7 @@ class MyComponent extends Component {
                 <h2>3-The first one to get 5 points win</h2>
               </div>
             </Col>
-            <Col className="tittle" >
+            <Col className="tittle">
               {/* modal winner */}
               <main>
                 <ModalWinner
@@ -147,6 +150,13 @@ class MyComponent extends Component {
                 >
                   <p>Correct</p>
                 </ModalRightAnswer>
+              </main>
+              {/* modal show rules on responsive */}
+              <main>
+                <ModalRules
+                  showRules={this.state.showRules}
+                  handleClose={this.hideModal}
+                ></ModalRules>
               </main>
               <div
                 style={{
@@ -231,6 +241,12 @@ class MyComponent extends Component {
                 <h3>Player1: {this.state.player1} </h3>
                 <h3>Player2: {this.state.player2} </h3>
               </div>
+              <button
+              className="rulesForResponsive"
+              onClick={() => this.setState({ showRules: true })}
+            >
+              Rules
+            </button>
             </Col>
           </Row>
         </Container>

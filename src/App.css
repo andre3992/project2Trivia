@@ -41,6 +41,10 @@
     padding-top: 15px;
 }
 
+.rulesForResponsive {
+    display: none;
+}
+
 @media only screen and (max-width: 1023px) {
     .question {
         font-size: 18px;
@@ -63,6 +67,19 @@
     }
     .scoreboard h3 {
         font-size: 20px;
+    }
+    .rulesForResponsive {
+        display: block;
+        display: block;
+        width: 250px;
+        height: 40px;
+        background-color: #dfdfdf;
+        margin: .75rem;
+        border-radius: 5px;
+        color: #000;
+        font-size: 15px;
+        border: none;
+        transition: padding .3s;
     }
 }
 
@@ -180,6 +197,10 @@
     position: relative;
     top: 20%;
     font-size: 15px;
+}
+
+.rules h1 {
+    color: goldenrod;
 }
 
 .card {
