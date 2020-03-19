@@ -37,7 +37,7 @@ class MyComponent extends Component {
       player1: 0,
       player2: 0,
       error: null,
-      isLoaded: false,
+      isLoaded: true,
       activePlayer: "Player1",
       showWrongAnswer: false,
       showRightAnswer: false,
