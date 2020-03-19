@@ -30,6 +30,26 @@ class MyComponent extends Component {
     };
   }
 
+  //play again
+  playAgain = () => {
+
+    this.setState({
+      player1: 0,
+      player2: 0,
+      error: null,
+      isLoaded: false,
+      activePlayer: "Player1",
+      showWrongAnswer: false,
+      showRightAnswer: false,
+      showRules: false,
+      updateQuestion: false,
+      startGame: true,
+      // active for hide game at start
+      active: true,
+      winner: false,
+      difficulty: "easy"})
+  }
+
   // hide modal
   hideModal = difficulty => {
     if (difficulty === "easy") {
@@ -41,7 +61,6 @@ class MyComponent extends Component {
     if (difficulty === "hard") {
       this.setState({ difficulty: "hard" });
     }
-    console.log(difficulty);
     this.setState({
       showRightAnswer: false,
       showWrongAnswer: false,
@@ -114,7 +133,7 @@ class MyComponent extends Component {
               <main>
                 <ModalWinner
                   winner={this.state.winner}
-                  handleClose={this.hideModal}
+                  handleClose={this.playAgain}
                   player={this.state.activePlayer}
                 >
                   <p>winner</p>

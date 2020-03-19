@@ -12,8 +12,8 @@ const ModalRules = ({ handleClose,showRules }) => {
           <h2>1-Win a point everytime you get the answer right</h2>
           <h2>2-One player at a time</h2>
           <h2>3-The first one to get 5 points win</h2>
+          <button onClick={handleClose} className="buttonRules"> Close Rules </button>
         </div>
-        <button onClick={handleClose}> Close Rules </button>
       </section>
     </div>
   );
