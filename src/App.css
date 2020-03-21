@@ -13,6 +13,10 @@
     display: none;
 }
 
+.options {
+    padding-bottom: 20px;
+}
+
 .tittleName {
     font-size: 75px;
     color: goldenrod;
@@ -275,6 +279,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    width: 400px;
 }
 
 .category {
@@ -325,7 +330,7 @@
     color: white;
 }
 
-button {
+button:not(.buttonQuiz) {
     display: block;
     width: 250px;
     height: 40px;
@@ -338,7 +343,7 @@ button {
     transition: padding .3s;
 }
 
-button:hover {
+button:hover:not(.buttonQuiz) {
     background-color: green;
     color: white;
 }
@@ -369,4 +374,43 @@ button:hover {
         top: 15px;
         right: 35px;
     }
+}
+
+.buttonQuiz {
+    display: block;
+    width: 250px;
+    height: 40px;
+    color: black;
+    font-size: 15px;
+    text-align: center;
+    position: relative;
+    transition: all .35s;
+    border-radius: 5px;
+    border: none;
+    margin: 4px;
+}
+
+.buttonQuiz span {
+    position: relative;
+    z-index: 2;
+}
+
+.buttonQuiz:after {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: #ff003b;
+    transition: all .35s;
+    border-radius: 5px;
+}
+
+.buttonQuiz:hover {
+    color: white;
+}
+
+.buttonQuiz:hover:after {
+    width: 100%;
 }

@@ -241,9 +241,9 @@ class MyComponent extends Component {
                         </div>
                         <div className="options">
                           {"Options: "}
-                          {answers.map(item => (
+                          {answers.map(item => (   
                             <>
-                              <button
+                            <button
                                 key={item}
                                 className="buttonQuiz"
                                 onClick={() => {
@@ -270,10 +270,11 @@ class MyComponent extends Component {
                                     winner: result.win
                                   });
                                 }}
-                              >
+                              ><span>
                                 {decodeChar(item)}
+                                </span>
                               </button>
-                            </>
+                              </>
                           ))}
                         </div>
                       </>
