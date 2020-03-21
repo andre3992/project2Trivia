@@ -13,6 +13,7 @@ export const decodeChar = question => {
     question = question.replace(/&Uuml;/g, "Ü");
     question = question.replace(/&Ouml;/g, "Ö");
     question = question.replace(/&amp;/g, "&");
+    question = question.replace(/&Delta;/g, "δ");
     return question;
 };
 

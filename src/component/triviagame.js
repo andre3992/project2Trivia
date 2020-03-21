@@ -2,11 +2,11 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import React, { Component } from "react";
 import randomAnswer from "./randomAnswer";
 import { decodeChar, checkAnswer } from "../component/gamelogic";
-import ModalWrongAnswer from "./modalWrongAnswer";
-import ModalRightAnswer from "./modalRightAnswer";
-import StartGame from "./startGame";
-import ModalWinner from "./modalWinner";
-import ModalRules from "./modalRules";
+import ModalWrongAnswer from "./modals/modalWrongAnswer";
+import ModalRightAnswer from "./modals/modalRightAnswer";
+import StartGame from "./modals/startGame";
+import ModalWinner from "./modals/modalWinner";
+import ModalRules from "./modals/modalRules";
 import { Container, Row, Col } from "react-bootstrap";
 
 class MyComponent extends Component {
@@ -32,7 +32,6 @@ class MyComponent extends Component {
 
   //play again
   playAgain = () => {
-
     this.setState({
       player1: 0,
       player2: 0,
@@ -47,8 +46,9 @@ class MyComponent extends Component {
       // active for hide game at start
       active: true,
       winner: false,
-      difficulty: "easy"})
-  }
+      difficulty: "easy"
+    });
+  };
 
   // hide modal
   hideModal = difficulty => {
@@ -67,7 +67,7 @@ class MyComponent extends Component {
       startGame: false,
       active: false,
       winner: false,
-      showRules:false
+      showRules: false
     });
   };
 
@@ -107,6 +107,17 @@ class MyComponent extends Component {
     }
   }
 
+  /* Open rules menu on responsive */
+
+  openNav = () => {
+    document.getElementById("myNav").style.width = "100%";
+  };
+
+  /* Close when someone clicks on the "x" symbol inside the overlay */
+  closeNav() {
+    document.getElementById("myNav").style.width = "0%";
+  }
+
   render() {
     const { error, isLoaded, results, activePlayer } = this.state;
     if (error) {
@@ -118,6 +129,25 @@ class MyComponent extends Component {
         <Container fluid>
           <div className="tittleName">
             <h1>Trivia Battle</h1>
+          </div>
+
+          <div id="myNav" className="overlay">
+            <a href="# " className="closebtn" onClick={this.closeNav}>
+              &times;
+            </a>
+
+            <div className="overlay-content">
+              <h1>Rules:</h1>
+              <h2>1-Win a point everytime you get the answer right</h2>
+              <h2>2-One player at a time</h2>
+              <h2>3-The first one to get 5 points win</h2>
+            </div>
+          </div>
+
+          <div className="drawer-button">
+            <a href="# " className="rulesDrawer" onClick={this.openNav}>
+              Rules
+            </a>
           </div>
           <Row>
             <Col className="rules">
@@ -147,7 +177,7 @@ class MyComponent extends Component {
                   startGame={this.state.startGame}
                   handleClose={this.hideModal}
                 >
-                  <h1>Welcome</h1>
+                  <h2>Welcome to Trivia Battle</h2>
                 </StartGame>
               </main>
 
@@ -212,7 +242,7 @@ class MyComponent extends Component {
                         <div className="options">
                           {"Options: "}
                           {answers.map(item => (
-                            <div>
+                            <>
                               <button
                                 key={item}
                                 className="buttonQuiz"
@@ -243,7 +273,7 @@ class MyComponent extends Component {
                               >
                                 {decodeChar(item)}
                               </button>
-                            </div>
+                            </>
                           ))}
                         </div>
                       </>
@@ -259,13 +289,13 @@ class MyComponent extends Component {
                 <h2>Scoreboard</h2>
                 <h3>Player1: {this.state.player1} </h3>
                 <h3>Player2: {this.state.player2} </h3>
+                <button
+                  className="rulesForResponsive"
+                  onClick={() => this.setState({ showRules: true })}
+                >
+                  Rules
+                </button>
               </div>
-              <button
-              className="rulesForResponsive"
-              onClick={() => this.setState({ showRules: true })}
-            >
-              Rules
-            </button>
             </Col>
           </Row>
         </Container>

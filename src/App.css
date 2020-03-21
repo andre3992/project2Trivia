@@ -9,6 +9,14 @@
     text-align: center;
 }
 
+.overlay {
+    display: none;
+}
+
+.buttonOverlay {
+    display: none;
+}
+
 .tittleName {
     color: goldenrod;
     margin-top: 50px;
@@ -18,11 +26,6 @@
     color: white;
     font-size: 60px
 }
-
-
-/* .board {
-    width: 500px
-} */
 
 .category {
     color: white;
@@ -42,10 +45,30 @@
 }
 
 .rulesForResponsive {
-    display: none;
+    visibility: hidden;
 }
 
 @media only screen and (max-width: 1023px) {
+    .rulesDrawer {
+        color: goldenrod;
+        font-size: 30px;
+    }
+    .drawer-button {
+        position: absolute;
+        top: 40%;
+        left: 10px;
+        width: 100px;
+        height: 100px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        z-index: 100;
+    }
+    .app {
+        position: relative;
+    }
     .question {
         font-size: 18px;
     }
@@ -69,7 +92,7 @@
         font-size: 20px;
     }
     .rulesForResponsive {
-        display: block;
+        visibility: visible;
         display: block;
         width: 250px;
         height: 40px;
@@ -80,6 +103,65 @@
         font-size: 15px;
         border: none;
         transition: padding .3s;
+    }
+    .buttonOverlay {
+        display: block;
+    }
+    .overlay {
+        /* Height & width depends on how you want to reveal the overlay (see JS below) */
+        display: block;
+        height: 100%;
+        width: 0;
+        position: fixed;
+        /* Stay in place */
+        z-index: 1;
+        /* Sit on top */
+        left: 0;
+        top: 0;
+        background-color: rgb(0, 0, 0);
+        /* Black fallback color */
+        background-color: rgba(0, 0, 0, 0.9);
+        /* Black w/opacity */
+        overflow-x: hidden;
+        /* Disable horizontal scroll */
+        transition: 0.5s;
+        /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
+    }
+    /* Position the content inside the overlay */
+    .overlay-content {
+        position: relative;
+        top: 25%;
+        /* 25% from the top */
+        width: 100%;
+        /* 100% width */
+        text-align: center;
+        /* Centered text/links */
+        margin-top: 30px;
+        /* 30px top margin to avoid conflict with the close button on smaller screens */
+        color: white;
+    }
+    /* The navigation links inside the overlay */
+    .overlay a {
+        padding: 8px;
+        text-decoration: none;
+        font-size: 36px;
+        color: #818181;
+        display: block;
+        /* Display block instead of inline */
+        transition: 0.3s;
+        /* Transition effects on hover (color) */
+    }
+    /* When you mouse over the navigation links, change their color */
+    .overlay a:hover,
+    .overlay a:focus {
+        color: #f1f1f1;
+    }
+    /* Position the close button (top right corner) */
+    .overlay .closebtn {
+        position: absolute;
+        top: 20px;
+        right: 45px;
+        font-size: 60px;
     }
 }
 
@@ -225,7 +307,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: 380px;
+    width: 400px;
 }
 
 .cardInner {
@@ -257,19 +339,6 @@
     justify-content: center;
 }
 
-.buttonQuiz {
-    display: block;
-    width: 250px;
-    height: 40px;
-    background-color: #dfdfdf;
-    margin: .75rem;
-    border-radius: 5px;
-    color: #000;
-    font-size: 15px;
-    border: none;
-    transition: padding .3s;
-}
-
 .buttonRules {
     width: 250px;
     height: 40px;
@@ -286,10 +355,12 @@
     color: white;
 }
 
-.buttonWinner {
+button {
+    display: block;
     width: 250px;
     height: 40px;
     background-color: #dfdfdf;
+    margin: 4px;
     border-radius: 5px;
     color: #000;
     font-size: 15px;
@@ -297,52 +368,26 @@
     transition: padding .3s;
 }
 
-.buttonQuiz:hover {
+button:hover {
     background-color: green;
     color: white;
 }
 
-.buttonStart {
-    display: block;
-    width: 250px;
-    height: 40px;
-    background-color: #dfdfdf;
-    margin: 2px;
-    border-radius: 5px;
-    color: #000;
-    font-size: 15px;
-    border: none;
-    transition: padding .3s;
-}
-
-.buttonStart:hover {
-    background-color: green;
-    color: white;
-}
-
-.buttonWrongAnswer {
-    display: block;
-    width: 250px;
-    height: 40px;
+.buttonWrongAnswer:hover {
     background-color: red;
-    margin: 2px;
-    border-radius: 5px;
-    color: #000;
-    font-size: 15px;
-    border: none;
-    transition: padding .3s;
     color: white;
 }
 
-.buttonRightAnswer {
-    display: block;
-    width: 100px;
-    background-color: green;
-    margin: 1px;
-    border-radius: 5px;
-    color: #000;
-    font-size: 15px;
-    border: none;
-    transition: padding .3s;
-    color: white;
+
+/* When the height of the screen is less than 450 pixels, change the font-size of the links and position the close button again, so they don't overlap */
+
+@media screen and (max-height: 450px) {
+    .overlay a {
+        font-size: 20px
+    }
+    .overlay .closebtn {
+        font-size: 40px;
+        top: 15px;
+        right: 35px;
+    }
 }
