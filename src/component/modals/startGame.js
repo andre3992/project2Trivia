@@ -1,7 +1,7 @@
 import React from "react";
 
 const StartGame = ({ handleClose, startGame,children }) => {
-  const showHideClassName = startGame ? "modal display-block": "modal display-none";
+  const showHideClassName = startGame ? "modalStart display-block": "modalStart display-none";
 
   return (
     <div className={showHideClassName}>

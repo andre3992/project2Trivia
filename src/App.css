@@ -14,6 +14,7 @@
 }
 
 .tittleName {
+    font-size: 75px;
     color: goldenrod;
     margin-top: 50px;
 }
@@ -23,25 +24,14 @@
     font-size: 60px
 }
 
-.category {
-    color: white;
-    font-weight: bold;
-    font-size: 25px;
-    height: 80px;
-}
-
-.question {
-    color: white;
-    font-size: 20px;
-    height: 120px;
-    padding-left: 15px;
-    padding-right: 15px;
-    font-size: 18px;
-    padding-top: 15px;
-}
-
 .drawer-button {
     display: none;
+}
+
+@media only screen and (min-width: 1024px) {
+    .row {
+        padding-top: 150px;
+    }
 }
 
 @media only screen and (max-width: 1023px) {
@@ -145,21 +135,6 @@
     }
 }
 
-.blankarea {
-    width: 500px
-}
-
-.cheese {
-    width: 500px
-}
-
-.options {
-    color: white;
-    font-size: 25px;
-    padding-bottom: 20px;
-    padding-top: 20px;
-}
-
 
 /* modal */
 
@@ -172,12 +147,29 @@
     background: rgba(0, 0, 0, 0.6);
 }
 
+
+/* in the beginning to hide the background*/
+
+.modalStart {
+    z-index: 100;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: black;
+}
+
+.modalStart h1 {
+    color: goldenrod
+}
+
 .modal-StartGame {
     color: white;
     display: flex;
     position: absolute;
     width: 30%;
-    height: 200px;
+    height: 300px;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -213,19 +205,6 @@
     flex-direction: column;
     background-image: url("https://cdn.pixabay.com/photo/2017/07/21/23/57/concert-2527495__340.jpg");
     text-shadow: white;
-}
-
-.modal-StartGame {
-    display: flex;
-    position: absolute;
-    width: 30%;
-    height: 200px;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    align-items: center;
-    justify-content: center;
-    color: white;
 }
 
 .modal-rules {
@@ -277,18 +256,8 @@
     color: goldenrod;
 }
 
-.card {
-    border-radius: 10%;
-    border: 10px;
-    background-color: #1b3861;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    width: 400px;
-}
-
 .cardInner {
+    color: white;
     border-style: solid;
     border-width: 5px;
     display: flex;
@@ -299,9 +268,32 @@
     width: 400px;
 }
 
+.card {
+    border-radius: 10%;
+    border: 10px;
+    background-color: #1b3861;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
 .category {
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 20px;
+    color: white;
+    font-weight: bold;
+    font-size: 25px;
+    height: 80px;
+}
+
+.question {
+    color: white;
+    font-size: 100px;
+    height: 120px;
+    padding-left: 15px;
+    padding-right: 15px;
+    font-size: 18px;
     padding-top: 15px;
 }
 
@@ -351,8 +343,17 @@ button:hover {
     color: white;
 }
 
+.buttonWrongAnswer {
+    background-color: red;
+    color: white;
+}
+
 .buttonWrongAnswer:hover {
     background-color: red;
+}
+
+.buttonRightAnswer {
+    background-color: green;
     color: white;
 }
 

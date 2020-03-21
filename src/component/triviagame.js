@@ -128,7 +128,7 @@ class MyComponent extends Component {
       return (
         <Container fluid>
           <div className="tittleName">
-            <h1>Trivia Battle</h1>
+            <p>Trivia Battle</p>
           </div>
 
           <div id="myNav" className="overlay">
@@ -177,7 +177,7 @@ class MyComponent extends Component {
                   startGame={this.state.startGame}
                   handleClose={this.hideModal}
                 >
-                  <h2>Welcome to Trivia Battle</h2>
+                  <h1>Welcome to Trivia Battle</h1>
                 </StartGame>
               </main>
 
