@@ -289,12 +289,6 @@ class MyComponent extends Component {
                 <h2>Scoreboard</h2>
                 <h3>Player1: {this.state.player1} </h3>
                 <h3>Player2: {this.state.player2} </h3>
-                <button
-                  className="rulesForResponsive"
-                  onClick={() => this.setState({ showRules: true })}
-                >
-                  Rules
-                </button>
               </div>
             </Col>
           </Row>

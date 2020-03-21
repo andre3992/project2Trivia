@@ -13,10 +13,6 @@
     display: none;
 }
 
-.buttonOverlay {
-    display: none;
-}
-
 .tittleName {
     color: goldenrod;
     margin-top: 50px;
@@ -44,13 +40,13 @@
     padding-top: 15px;
 }
 
-.rulesForResponsive {
-    visibility: hidden;
+.drawer-button {
+    display: none;
 }
 
 @media only screen and (max-width: 1023px) {
     .rulesDrawer {
-        color: goldenrod;
+        color: yellow;
         font-size: 30px;
     }
     .drawer-button {
@@ -139,22 +135,6 @@
         margin-top: 30px;
         /* 30px top margin to avoid conflict with the close button on smaller screens */
         color: white;
-    }
-    /* The navigation links inside the overlay */
-    .overlay a {
-        padding: 8px;
-        text-decoration: none;
-        font-size: 36px;
-        color: #818181;
-        display: block;
-        /* Display block instead of inline */
-        transition: 0.3s;
-        /* Transition effects on hover (color) */
-    }
-    /* When you mouse over the navigation links, change their color */
-    .overlay a:hover,
-    .overlay a:focus {
-        color: #f1f1f1;
     }
     /* Position the close button (top right corner) */
     .overlay .closebtn {
@@ -252,7 +232,6 @@
     display: flex;
     position: absolute;
     width: 100%;
-    /* height: 200px; */
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -272,7 +251,6 @@
 
 .main {
     display: flex;
-    /* width: 1360px; */
     justify-content: center;
     align-items: center;
 }
