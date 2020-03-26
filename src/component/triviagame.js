@@ -7,7 +7,8 @@ import ModalRightAnswer from "./modals/modalRightAnswer";
 import StartGame from "./modals/startGame";
 import ModalWinner from "./modals/modalWinner";
 import ModalRules from "./modals/modalRules";
-import { Container, Row, Col } from "react-bootstrap";
+import {Table, Container, Row, Col } from "react-bootstrap";
+// import sessionStorage from "./sessionStorage"
 
 class MyComponent extends Component {
   constructor(props) {
@@ -26,7 +27,7 @@ class MyComponent extends Component {
       // active for hide game at start
       active: true,
       winner: false,
-      difficulty: "easy"
+      difficulty: "easy",
     };
   }
 
@@ -46,7 +47,8 @@ class MyComponent extends Component {
       // active for hide game at start
       active: true,
       winner: false,
-      difficulty: "easy"
+      difficulty: "easy",
+      scoreBoard: []
     });
   };
 
@@ -99,6 +101,7 @@ class MyComponent extends Component {
 
   componentDidMount() {
     this.getQuiz();
+    this.createTable();
   }
 
   componentDidUpdate() {
@@ -107,7 +110,22 @@ class MyComponent extends Component {
     }
   }
 
-  /* Open rules menu on responsive */
+  showSessionStorage=()=>{
+
+    let data = sessionStorage.getItem('key');
+
+  }
+  /* Open scoreboard menu on responsive */
+  openScoreboard = () => {
+    document.getElementById("myScoreboard").style.width = "100%";
+  };
+
+  /* Close when someone clicks on the "x" symbol inside the overlay */
+  closeScoreboard() {
+    document.getElementById("myScoreboard").style.width = "0%";
+  }
+
+  /* Open rules  on responsive */
 
   openNav = () => {
     document.getElementById("myNav").style.width = "100%";
@@ -117,6 +135,18 @@ class MyComponent extends Component {
   closeNav() {
     document.getElementById("myNav").style.width = "0%";
   }
+
+  createTable(){
+    let table = [];
+    for (let i = 1; i < 50; i++) {
+      console.log("sessao")
+      table.push(<tr>{window.sessionStorage.getItem(i)}</tr>)
+    }
+    this.setState({
+      scoreBoard:table
+    })
+    return table;
+  };
 
   render() {
     const { error, isLoaded, results, activePlayer } = this.state;
@@ -135,7 +165,6 @@ class MyComponent extends Component {
             <a href="# " className="closebtn" onClick={this.closeNav}>
               &times;
             </a>
-
             <div className="overlay-content">
               <h1>Rules:</h1>
               <h2>1-Win a point everytime you get the answer right</h2>
@@ -144,20 +173,36 @@ class MyComponent extends Component {
             </div>
           </div>
 
-          <div className="drawer-button">
-            <a href="# " className="rulesDrawer" onClick={this.openNav}>
-              Rules
+          <div id="myScoreboard" className="overlay">
+            <a href="# " className="closebtn" onClick={this.closeScoreboard}>
+              &times;
             </a>
+            <div className="overlay-content">
+              <h1>Scoreboard</h1> 
+              <Table className = "sessionTable">
+              <thead>
+                <tr>
+                <h2>Name:</h2>
+                </tr>
+              </thead>
+              <tbody>
+              {this.state.scoreBoard}
+                </tbody>
+              </Table>
+            </div>
           </div>
           <Row>
             <Col className="rules">
-              <div>
-                <h1>Rules:</h1>
+              <button onClick={this.openNav} className="rulesDrawer">
+              Rules
+              {/* <h1>Rules:</h1>
                 <h2>1-Win a point everytime you get the answer right</h2>
                 <h2>2-One player at a time</h2>
-                <h2>3-The first one to get 5 points win</h2>
-              </div>
+                <h2>3-The first one to get 5 points win</h2> */}
+              </button>
+              <button onClick={this.openScoreboard}>Scoreboard</button>
             </Col>
+            
             <Col className="tittle">
               {/* modal winner */}
               <main>

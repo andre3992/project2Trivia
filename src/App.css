@@ -9,6 +9,11 @@
     text-align: center;
 }
 
+.sessionTable {
+    color: white;
+    align-items: center;
+}
+
 .overlay {
     display: none;
 }
@@ -97,46 +102,57 @@
     .buttonOverlay {
         display: block;
     }
-    .overlay {
-        /* Height & width depends on how you want to reveal the overlay (see JS below) */
-        display: block;
-        height: 100%;
-        width: 0;
-        position: fixed;
-        /* Stay in place */
-        z-index: 1;
-        /* Sit on top */
-        left: 0;
-        top: 0;
-        background-color: rgb(0, 0, 0);
-        /* Black fallback color */
-        background-color: rgba(0, 0, 0, 0.9);
-        /* Black w/opacity */
-        overflow-x: hidden;
-        /* Disable horizontal scroll */
-        transition: 0.5s;
-        /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
-    }
-    /* Position the content inside the overlay */
-    .overlay-content {
-        position: relative;
-        top: 25%;
-        /* 25% from the top */
-        width: 100%;
-        /* 100% width */
-        text-align: center;
-        /* Centered text/links */
-        margin-top: 30px;
-        /* 30px top margin to avoid conflict with the close button on smaller screens */
-        color: white;
-    }
-    /* Position the close button (top right corner) */
-    .overlay .closebtn {
-        position: absolute;
-        top: 20px;
-        right: 45px;
-        font-size: 60px;
-    }
+}
+
+input {
+    color: black;
+}
+
+.overlay {
+    /* Height & width depends on how you want to reveal the overlay (see JS below) */
+    display: block;
+    height: 100%;
+    width: 0;
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    left: 0;
+    top: 0;
+    background-color: rgb(0, 0, 0);
+    /* Black fallback color */
+    background-color: rgba(0, 0, 0, 0.9);
+    /* Black w/opacity */
+    overflow-x: hidden;
+    /* Disable horizontal scroll */
+    transition: 0.5s;
+    /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
+}
+
+
+/* Position the content inside the overlay */
+
+.overlay-content {
+    position: relative;
+    top: 25%;
+    /* 25% from the top */
+    width: 100%;
+    /* 100% width */
+    text-align: center;
+    /* Centered text/links */
+    margin-top: 30px;
+    /* 30px top margin to avoid conflict with the close button on smaller screens */
+    color: white;
+}
+
+
+/* Position the close button (top right corner) */
+
+.overlay .closebtn {
+    position: absolute;
+    top: 20px;
+    right: 45px;
+    font-size: 60px;
 }
 
 
@@ -402,7 +418,7 @@ button:hover:not(.buttonQuiz) {
     left: 0;
     width: 0;
     height: 100%;
-    background: #ff003b;
+    background: green;
     transition: all .35s;
     border-radius: 5px;
 }
