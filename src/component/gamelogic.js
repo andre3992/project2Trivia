@@ -16,6 +16,8 @@ export const decodeChar = question => {
     question = question.replace(/&Delta;/g, "δ");
     question = question.replace(/&ocirc;/g, "Ô");
     question = question.replace(/&rsquo;/g, "’");
+    question = question.replace(/&Eacute;/g, "É");
+
     return question;
 };
 

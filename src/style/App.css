@@ -29,7 +29,6 @@
 .tittleName {
     font-size: 75px;
     color: goldenrod;
-    margin-top: 50px;
 }
 
 .gamename h1 {
@@ -258,7 +257,6 @@ input {
 
 .tittle {
     top: 10%;
-    font-size: 30px;
     display: flex;
     justify-content: center;
 }
@@ -266,6 +264,7 @@ input {
 .row {
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 .buttonRules {
@@ -369,9 +368,10 @@ button:hover:not(.buttonQuiz) {
     width: 100%;
 }
 
-@media only screen and (min-width: 1024px) {
+@media only screen and (min-width: 901px) {
     .row {
         padding-top: 150px;
+        align-items: center;
     }
     .cardInner {
         width: 400px;
@@ -382,9 +382,36 @@ button:hover:not(.buttonQuiz) {
     .question {
         font-size: 18px;
     }
+    .tittle {
+        font-size: 30px;
+    }
+    button:not(.buttonQuiz) {
+        display: block;
+        width: 250px;
+        height: 40px;
+        background-color: #dfdfdf;
+        margin: 4px;
+        border-radius: 5px;
+        color: #000;
+        font-size: 15px;
+        border: none;
+        transition: padding .3s;
+    }
 }
 
 @media only screen and (max-width: 768px) and (min-width:1px) {
+    button:not(.buttonQuiz) {
+        display: block;
+        width: 150px;
+        height: 30px;
+        background-color: #dfdfdf;
+        margin: 4px;
+        border-radius: 5px;
+        color: #000;
+        font-size: 15px;
+        border: none;
+        transition: padding .3s;
+    }
     .buttonQuiz {
         width: 200px;
         height: 30px;
@@ -394,7 +421,6 @@ button:hover:not(.buttonQuiz) {
     }
     .tittleName {
         font-size: 40px;
-        margin-top: 20px;
     }
     .cardInner {
         width: 300px;
@@ -478,7 +504,10 @@ button:hover:not(.buttonQuiz) {
     }
 }
 
-@media only screen and (min-width:769px) and (max-width:1023px) {
+@media only screen and (min-width:769px) and (max-width:900px) {
+    .tittle {
+        font-size: 14px;
+    }
     .scoreboard {
         display: flex;
         flex-direction: row;
@@ -504,6 +533,18 @@ button:hover:not(.buttonQuiz) {
         justify-content: center;
         overflow: hidden;
         z-index: 100;
+    }
+    button:not(.buttonQuiz) {
+        display: block;
+        width: 150px;
+        height: 30px;
+        background-color: #dfdfdf;
+        margin: 4px;
+        border-radius: 5px;
+        color: #000;
+        font-size: 15px;
+        border: none;
+        transition: padding .3s;
     }
     .app {
         position: relative;

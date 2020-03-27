@@ -189,10 +189,10 @@ class MyComponent extends Component {
           </div>
           <Row>
             <Col className="rules">
-              <button onClick={this.openNav} className="rulesDrawer">
+              <button onClick={this.openNav} className="btn btn-2" >
                 Rules
               </button>
-              <button onClick={this.openScoreboard}>Scoreboard</button>
+              <button className="btn btn-2" onClick={this.openScoreboard}>Scoreboard</button>
             </Col>
 
             <Col className="tittle">
