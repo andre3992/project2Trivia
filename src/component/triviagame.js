@@ -7,7 +7,7 @@ import ModalRightAnswer from "./modals/modalRightAnswer";
 import StartGame from "./modals/startGame";
 import ModalWinner from "./modals/modalWinner";
 import ModalRules from "./modals/modalRules";
-import { Table, Container, Row, Col } from "react-bootstrap";
+import {Container, Row, Col } from "react-bootstrap";
 // import sessionStorage from "./sessionStorage"
 
 class MyComponent extends Component {
@@ -101,7 +101,6 @@ class MyComponent extends Component {
 
   componentDidMount() {
     this.getQuiz();
-    this.createTable();
   }
 
   componentDidUpdate() {
@@ -109,10 +108,7 @@ class MyComponent extends Component {
       this.getQuiz();
     }
   }
-
-  showSessionStorage = () => {
-    let data = sessionStorage.getItem("key");
-  };
+  
   /* Open scoreboard menu on responsive */
   openScoreboard = () => {
     document.getElementById("myScoreboard").style.width = "100%";
@@ -132,18 +128,6 @@ class MyComponent extends Component {
   /* Close when someone clicks on the "x" symbol inside the overlay */
   closeNav() {
     document.getElementById("myNav").style.width = "0%";
-  }
-
-  createTable() {
-    let table = [];
-    for (let i = 1; i < 50; i++) {
-      console.log("sessao");
-      table.push(<tr>{window.sessionStorage.getItem(i)}</tr>);
-    }
-    this.setState({
-      scoreBoard: table
-    });
-    return table;
   }
 
   render() {
@@ -176,15 +160,7 @@ class MyComponent extends Component {
               &times;
             </a>
             <div className="overlay-content">
-              <h1>Scoreboard</h1>
-              <Table className="sessionTable">
-                <thead>
-                  <tr>
-                    <h2>Name:</h2>
-                  </tr>
-                </thead>
-                <tbody>{this.state.scoreBoard}</tbody>
-              </Table>
+              <h1>Board</h1>
             </div>
           </div>
           <Row>
@@ -192,7 +168,7 @@ class MyComponent extends Component {
               <button onClick={this.openNav} className="btn btn-2" >
                 Rules
               </button>
-              <button className="btn btn-2" onClick={this.openScoreboard}>Scoreboard</button>
+              {/* <button className="btn btn-2" onClick={this.openScoreboard}>Board</button> */}
             </Col>
 
             <Col className="tittle">
@@ -331,7 +307,7 @@ class MyComponent extends Component {
                 <button onClick={this.openNav} className="btn btn-2">
                   Rules
                 </button>
-                <button className="btn btn-2" onClick={this.openScoreboard}>Scoreboard</button>
+                {/* <button className="btn btn-2" onClick={this.openScoreboard}>Board</button> */}
               </div>
             </Col>
           </Row>

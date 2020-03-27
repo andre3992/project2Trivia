@@ -283,7 +283,8 @@ input {
     color: white;
 }
 
-button:not(.buttonQuiz) {
+
+/* button:not(.buttonQuiz) {
     display: block;
     width: 250px;
     height: 40px;
@@ -299,20 +300,70 @@ button:not(.buttonQuiz) {
 button:hover:not(.buttonQuiz) {
     background-color: green;
     color: white;
+} */
+
+.buttonStart {
+    background-color: white;
+    color: black;
+    font-size: 17px;
+    display: block;
+    width: 250px;
+    height: 40px;
+    font-size: 15px;
+    text-align: center;
+    position: relative;
+    border-radius: 5px;
+    border: none;
+    margin: 4px;
+}
+
+.buttonStart:hover {
+    background-color: green;
 }
 
 .buttonWrongAnswer {
     background-color: red;
     color: white;
+    font-size: 17px;
+    display: block;
+    width: 250px;
+    height: 40px;
+    font-size: 15px;
+    text-align: center;
+    position: relative;
+    border-radius: 5px;
+    border: none;
+    margin: 4px;
 }
 
-.buttonWrongAnswer:hover {
-    background-color: red;
+.buttonWinner {
+    background-color: goldenrod;
+    color: black;
+    font-size: 17px;
+    display: block;
+    width: 250px;
+    height: 40px;
+    font-size: 15px;
+    text-align: center;
+    position: relative;
+    border-radius: 5px;
+    border: none;
+    margin: 4px;
 }
 
 .buttonRightAnswer {
     background-color: green;
     color: white;
+    font-size: 20px;
+    display: block;
+    width: 250px;
+    height: 40px;
+    font-size: 17px;
+    text-align: center;
+    position: relative;
+    border-radius: 5px;
+    border: none;
+    margin: 4px;
 }
 
 
@@ -386,32 +437,12 @@ button:hover:not(.buttonQuiz) {
         font-size: 30px;
     }
     button:not(.buttonQuiz) {
-        display: block;
         width: 250px;
         height: 40px;
-        background-color: #dfdfdf;
-        margin: 4px;
-        border-radius: 5px;
-        color: #000;
-        font-size: 15px;
-        border: none;
-        transition: padding .3s;
     }
 }
 
 @media only screen and (max-width: 768px) and (min-width:1px) {
-    button:not(.buttonQuiz) {
-        display: block;
-        width: 150px;
-        height: 30px;
-        background-color: #dfdfdf;
-        margin: 4px;
-        border-radius: 5px;
-        color: #000;
-        font-size: 15px;
-        border: none;
-        transition: padding .3s;
-    }
     .buttonQuiz {
         width: 200px;
         height: 30px;
