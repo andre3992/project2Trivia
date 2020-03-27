@@ -37,71 +37,8 @@
     display: none;
 }
 
-@media only screen and (min-width: 1024px) {
-    .row {
-        padding-top: 150px;
-    }
-}
-
-@media only screen and (max-width: 1023px) {
-    .rulesDrawer {
-        color: yellow;
-        font-size: 30px;
-    }
-    .drawer-button {
-        position: absolute;
-        top: 40%;
-        left: 10px;
-        width: 100px;
-        height: 100px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        overflow: hidden;
-        z-index: 100;
-    }
-    .app {
-        position: relative;
-    }
-    .question {
-        font-size: 18px;
-    }
-    .rules {
-        display: none;
-    }
-    .category h1 {
-        font-size: 25px;
-    }
-    .row {
-        display: flex;
-        flex-direction: column;
-    }
-    .scoreboard h1 {
-        font-size: 30px;
-    }
-    .scoreboard h2 {
-        font-size: 25px;
-    }
-    .scoreboard h3 {
-        font-size: 20px;
-    }
-    .rulesForResponsive {
-        visibility: visible;
-        display: block;
-        width: 250px;
-        height: 40px;
-        background-color: #dfdfdf;
-        margin: .75rem;
-        border-radius: 5px;
-        color: #000;
-        font-size: 15px;
-        border: none;
-        transition: padding .3s;
-    }
-    .buttonOverlay {
-        display: block;
-    }
+.buttonsOnResponsive {
+    display: none;
 }
 
 input {
@@ -285,7 +222,6 @@ input {
     background-color: goldenrod;
     justify-content: center;
     align-items: center;
-    width: 400px;
 }
 
 .card {
@@ -304,7 +240,6 @@ input {
     padding-top: 20px;
     color: white;
     font-weight: bold;
-    font-size: 25px;
     height: 80px;
 }
 
@@ -314,7 +249,6 @@ input {
     height: 120px;
     padding-left: 15px;
     padding-right: 15px;
-    font-size: 18px;
     padding-top: 15px;
 }
 
@@ -429,4 +363,183 @@ button:hover:not(.buttonQuiz) {
 
 .buttonQuiz:hover:after {
     width: 100%;
+}
+
+@media only screen and (min-width: 1024px) {
+    .row {
+        padding-top: 150px;
+    }
+    .cardInner {
+        width: 400px;
+    }
+    .category {
+        font-size: 25px;
+    }
+    .question {
+        font-size: 18px;
+    }
+}
+
+@media only screen and (max-width: 768px) and (min-width:1px) {
+    .buttonQuiz {
+        width: 200px;
+        height: 30px;
+    }
+    .option {
+        font-size: 20px;
+    }
+    .tittleName {
+        font-size: 40px;
+        margin-top: 20px;
+    }
+    .cardInner {
+        width: 300px;
+    }
+    .category {
+        font-size: 20px;
+    }
+    .question {
+        font-size: 15px;
+    }
+    .scoreboard {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
+    .buttonsOnResponsive {
+        display: block;
+    }
+    .buttonsOnResponsive button {
+        width: 200px;
+        height: 30px;
+    }
+    .rulesDrawer {
+        color: yellow;
+        font-size: 30px;
+    }
+    .drawer-button {
+        position: absolute;
+        top: 40%;
+        left: 10px;
+        width: 100px;
+        height: 100px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        z-index: 100;
+    }
+    .app {
+        position: relative;
+    }
+    .question {
+        font-size: 18px;
+    }
+    .rules {
+        display: none;
+    }
+    .category h1 {
+        font-size: 25px;
+    }
+    .row {
+        display: flex;
+        flex-direction: column;
+    }
+    .scoreboard h1 {
+        font-size: 21px;
+    }
+    .scoreboard h2 {
+        font-size: 18px;
+    }
+    .scoreboard h3 {
+        font-size: 15px;
+    }
+    .rulesForResponsive {
+        visibility: visible;
+        display: block;
+        width: 250px;
+        height: 40px;
+        background-color: #dfdfdf;
+        margin: .75rem;
+        border-radius: 5px;
+        color: #000;
+        font-size: 15px;
+        border: none;
+        transition: padding .3s;
+    }
+    .buttonOverlay {
+        display: block;
+    }
+}
+
+@media only screen and (min-width:769px) and (max-width:1023px) {
+    .scoreboard {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
+    .buttonsOnResponsive {
+        display: block;
+    }
+    .rulesDrawer {
+        color: yellow;
+        font-size: 30px;
+    }
+    .drawer-button {
+        position: absolute;
+        top: 40%;
+        left: 10px;
+        width: 100px;
+        height: 100px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        z-index: 100;
+    }
+    .app {
+        position: relative;
+    }
+    .question {
+        font-size: 18px;
+    }
+    .rules {
+        display: none;
+    }
+    .category h1 {
+        font-size: 25px;
+    }
+    .row {
+        display: flex;
+        flex-direction: column;
+    }
+    .scoreboard h1 {
+        font-size: 30px;
+    }
+    .scoreboard h2 {
+        font-size: 25px;
+    }
+    .scoreboard h3 {
+        font-size: 20px;
+    }
+    .rulesForResponsive {
+        visibility: visible;
+        display: block;
+        width: 250px;
+        height: 40px;
+        background-color: #dfdfdf;
+        margin: .75rem;
+        border-radius: 5px;
+        color: #000;
+        font-size: 15px;
+        border: none;
+        transition: padding .3s;
+    }
+    .buttonOverlay {
+        display: block;
+    }
 }

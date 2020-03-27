@@ -7,7 +7,7 @@ import ModalRightAnswer from "./modals/modalRightAnswer";
 import StartGame from "./modals/startGame";
 import ModalWinner from "./modals/modalWinner";
 import ModalRules from "./modals/modalRules";
-import {Table, Container, Row, Col } from "react-bootstrap";
+import { Table, Container, Row, Col } from "react-bootstrap";
 // import sessionStorage from "./sessionStorage"
 
 class MyComponent extends Component {
@@ -27,7 +27,7 @@ class MyComponent extends Component {
       // active for hide game at start
       active: true,
       winner: false,
-      difficulty: "easy",
+      difficulty: "easy"
     };
   }
 
@@ -110,11 +110,9 @@ class MyComponent extends Component {
     }
   }
 
-  showSessionStorage=()=>{
-
-    let data = sessionStorage.getItem('key');
-
-  }
+  showSessionStorage = () => {
+    let data = sessionStorage.getItem("key");
+  };
   /* Open scoreboard menu on responsive */
   openScoreboard = () => {
     document.getElementById("myScoreboard").style.width = "100%";
@@ -136,17 +134,17 @@ class MyComponent extends Component {
     document.getElementById("myNav").style.width = "0%";
   }
 
-  createTable(){
+  createTable() {
     let table = [];
     for (let i = 1; i < 50; i++) {
-      console.log("sessao")
-      table.push(<tr>{window.sessionStorage.getItem(i)}</tr>)
+      console.log("sessao");
+      table.push(<tr>{window.sessionStorage.getItem(i)}</tr>);
     }
     this.setState({
-      scoreBoard:table
-    })
+      scoreBoard: table
+    });
     return table;
-  };
+  }
 
   render() {
     const { error, isLoaded, results, activePlayer } = this.state;
@@ -178,31 +176,25 @@ class MyComponent extends Component {
               &times;
             </a>
             <div className="overlay-content">
-              <h1>Scoreboard</h1> 
-              <Table className = "sessionTable">
-              <thead>
-                <tr>
-                <h2>Name:</h2>
-                </tr>
-              </thead>
-              <tbody>
-              {this.state.scoreBoard}
-                </tbody>
+              <h1>Scoreboard</h1>
+              <Table className="sessionTable">
+                <thead>
+                  <tr>
+                    <h2>Name:</h2>
+                  </tr>
+                </thead>
+                <tbody>{this.state.scoreBoard}</tbody>
               </Table>
             </div>
           </div>
           <Row>
             <Col className="rules">
               <button onClick={this.openNav} className="rulesDrawer">
-              Rules
-              {/* <h1>Rules:</h1>
-                <h2>1-Win a point everytime you get the answer right</h2>
-                <h2>2-One player at a time</h2>
-                <h2>3-The first one to get 5 points win</h2> */}
+                Rules
               </button>
               <button onClick={this.openScoreboard}>Scoreboard</button>
             </Col>
-            
+
             <Col className="tittle">
               {/* modal winner */}
               <main>
@@ -285,10 +277,10 @@ class MyComponent extends Component {
                           {"Question: " + decodeChar(question)}
                         </div>
                         <div className="options">
-                          {"Options: "}
-                          {answers.map(item => (   
+                          {"Options:"}
+                          {answers.map(item => (
                             <>
-                            <button
+                              <button
                                 key={item}
                                 className="buttonQuiz"
                                 onClick={() => {
@@ -315,11 +307,10 @@ class MyComponent extends Component {
                                     winner: result.win
                                   });
                                 }}
-                              ><span>
-                                {decodeChar(item)}
-                                </span>
+                              >
+                                <span>{decodeChar(item)}</span>
                               </button>
-                              </>
+                            </>
                           ))}
                         </div>
                       </>
@@ -335,6 +326,12 @@ class MyComponent extends Component {
                 <h2>Scoreboard</h2>
                 <h3>Player1: {this.state.player1} </h3>
                 <h3>Player2: {this.state.player2} </h3>
+              </div>
+              <div className="buttonsOnResponsive">
+                <button onClick={this.openNav} className="btn btn-2">
+                  Rules
+                </button>
+                <button className="btn btn-2" onClick={this.openScoreboard}>Scoreboard</button>
               </div>
             </Col>
           </Row>

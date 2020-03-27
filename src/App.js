@@ -1,7 +1,8 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React from "react";
-import "./App.css";
+import "./style/App.css";
 import MyComponent from "./component/triviagame";
+import "./style/buttons.scss"
 
 class App extends React.Component {
     constructor() {
